@@ -10,31 +10,30 @@ weight = 5
 # List your academic interests.
 [interests]
   interests = [
-    "Artificial Intelligence",
-    "Computational Linguistics",
-    "Information Retrieval"
+    "Computational Social Science",
+    "Social Media Research",
+    "Mixed Methods Research",
+    "Public Health"
   ]
 
 # List your qualifications (such as academic degrees).
 [[education.courses]]
-  course = "PhD in Artificial Intelligence"
-  institution = "Stanford University"
-  year = 2012
+  course = "PhD Student in Sociology"
+  institution = "Autonomous University of Madrid"
+  year = 2018
 
 [[education.courses]]
-  course = "MEng in Artificial Intelligence"
-  institution = "Massachusetts Institute of Technology"
-  year = 2009
+  course = "M.A. in Methodology in Social Sciences Research"
+  institution = "Complutense University of Madrid"
+  year = 2016
 
 [[education.courses]]
-  course = "BSc in Artificial Intelligence"
-  institution = "Massachusetts Institute of Technology"
-  year = 2008
+  course = "BA in Sociology"
+  institution = "University of Granada"
+  year = 2013
  
 +++
 
 # Biography
 
-Lena Smith is a professor of artificial intelligence at the Stanford AI Lab. Her research interests include distributed robotics, mobile computing and programmable matter. She leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate. 
+I am a PhD Student Sociology (Department of Sociology) at Universidad Autónoma de Madrid. Currentily I work as senior consultant in [AGAEVE](http://www.juntadeandalucia.es/educacion/agaeve/). I worked as Researcher Consultant in [National Professional Association of Sociologists and Political Scientist](http://colpolsoc.org/). I have experience teaching courses related with methodology, online surveys and R Programming. My main research interests are related with quantitative research methods, computational social science, migration, social inequalities, social determinants of health and sociology.

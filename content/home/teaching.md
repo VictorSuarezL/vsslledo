@@ -15,14 +15,12 @@ weight = 60
 
 +++
 
-This is an example of using the *custom* widget to create your own homepage section.
+I was the teaching instructor for the following course:
 
-I am a teaching instructor for the following courses at University X:
+- Data Analysis I, Grade of Psychology at European University Miguel de Cervantes (2017/18)
+- Suvery Methodology in III Social Research Professional Course (2016/17)
+- Social Network Analysis in III Social Research Professional Course (2016/17)
+- Introduction to R in III Social Research Professional Course (2016/17)
+- Online Surveys in XXII ICN Summer School (2016/17)
+- Online Research Tools in XXII ICN Summer School (2016/17)
 
-- CS101: An intro to computer science
-- CS102: An intro to computer science
-- CS103: An intro to computer science
-- CS104: An intro to computer science
-- CS105: An intro to computer science
-- CS106: An intro to computer science
-- CS107: An intro to computer science
