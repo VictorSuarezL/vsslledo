@@ -1,9 +1,9 @@
 ---
-title: "Hello R Markdown"
-author: "Frida Gomam"
-date: 2015-07-23
+title: "Using smappR"
+author: "@vsuarezlledo"
+date: 2018-04-02
 categories: ["R"]
-tags: ["r", "plot", "regression"]
+tags: ["r", "smappR", "twitter"]
 math: true
 ---
 
@@ -11,7 +11,9 @@ math: true
 knitr::opts_chunk$set(collapse = TRUE)
 ```
 
-# R Markdown
+# smappR
+
+smappR is a great `r emo::ji("smile")`
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
