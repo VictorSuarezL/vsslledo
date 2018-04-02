@@ -1,12 +1,12 @@
 +++
-title = "Academic: the website designer for Hugo"
+title = "Academic Hugo Theme, GitHub and Blogdown"
 
 date = 2016-04-20
 lastmod = 2018-01-13
 draft = false
 
 tags = ["academic"]
-summary = "Create a beautifully simple website or blog in under 10 minutes."
+summary = "This blog is proudly powered by Acedemic, GitHub and Blogdown. This post is to thank all of them."
 
 [header]
 image = "headers/getting-started.png"
@@ -42,6 +42,10 @@ album = "1"
 image = "https://raw.githubusercontent.com/gcushen/hugo-academic/master/images/theme-1950s.png"
 caption = "1950s"
 +++
+
+Tips: 
+- You can use [blogdown](https://bookdown.org/yihui/blogdown/) a great package made by [Yihui Xie](https://yihui.name), [Amber Thomas](https://amber.rbind.io) and [Alison](https://alison.rbind.io).
+- If you want to update blogdown with GitHub read this [Alison's post](https://alison.rbind.io/post/up-and-running-with-blogdown/) is a must. 
 
 **Academic** is a framework to help you create a beautiful website quickly. Perfect for personal sites, blogs, or business/project sites. [Check out the latest demo](https://themes.gohugo.io/theme/academic/) of what you'll get in less than 10 minutes. Then head on over to the [Quick Start guide](https://sourcethemes.com/academic/docs/) or take a look at the [Release Notes](https://sourcethemes.com/academic/updates/).
 
@@ -143,3 +147,5 @@ For support, head over to the [Hugo discussion forum](http://discuss.gohugo.io).
 Copyright 2016-present [George Cushen](https://georgecushen.com).
 
 Released under the [MIT](https://github.com/gcushen/hugo-academic/blob/master/LICENSE.md) license.
+
+## 

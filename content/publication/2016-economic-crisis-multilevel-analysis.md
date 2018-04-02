@@ -26,7 +26,7 @@ abstract = "In this study, we use quantitative data from the project IMPACT-A, i
 abstract_short = "The present work studies the changes in socioeconomic determinants of health and analyzes the evolution in this relationship for the period 2005–2014 in Spain. This study supports the existence of contextual effects among Spanish regions that varies the association between SES measures and health, and therefore points out the relevance of socioeconomic context in explaining the differences in individuals’ states of health. In addition, our model indicates that more attention should be paid to less studied SES measures, especially those related to the position of individuals in globalized labor markets."
 
 # Featured image thumbnail (optional)
-image_preview = ""
+image_preview = "determinantes-wide.png"
 
 # Is this a selected publication? (true/false)
 selected = true

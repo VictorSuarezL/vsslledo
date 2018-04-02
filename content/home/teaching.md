@@ -15,7 +15,7 @@ weight = 60
 
 +++
 
-I was the teaching instructor for the following course:
+I was the teaching instructor for the following courses:
 
 - Data Analysis I, Grade of Psychology at European University Miguel de Cervantes (2017/18)
 - Suvery Methodology in III Social Research Professional Course (2016/17)

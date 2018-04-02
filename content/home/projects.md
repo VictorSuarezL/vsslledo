@@ -33,12 +33,12 @@ filter_default = 0
   tag = "*"
 
 [[filter]]
-  name = "Deep Learning"
-  tag = ".deep-learning"
+  name = "Health"
+  tag = ".health"
 
 [[filter]]
-  name = "Other"
-  tag = ".demo"
+  name = "Migration"
+  tag = ".migration"
 
 +++
 

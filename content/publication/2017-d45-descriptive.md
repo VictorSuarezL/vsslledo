@@ -1,5 +1,5 @@
 +++
-title = "Mapping mobility - pathways, institutions and structural effects of youth mobility."
+title = "Mapping mobility - pathways, institutions and structural effects of youth mobility"
 date = "2017-01-01"
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
@@ -57,7 +57,7 @@ highlight = true
 # Place your image in the `static/img/` folder and reference its filename below, e.g. `image = "example.jpg"`.
 [header]
 image = "move.png"
-caption = ""
+caption = "Image Credit: Move Project"
 
 +++
 

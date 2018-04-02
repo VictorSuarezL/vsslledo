@@ -6,10 +6,10 @@ active = true
 date = "2016-04-20T00:00:00"
 
 title = "Recent Posts"
-subtitle = ""
+subtitle = "[More Posts &#187;](https://vsslledo.netlify.com/post/)"
 
 # Order that this section will appear in.
-weight = 40
+weight = 30
 
 # Filter posts by tag.
 #  By default, show all recent posts.

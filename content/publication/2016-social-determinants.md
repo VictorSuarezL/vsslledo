@@ -25,10 +25,10 @@ abstract = "The present work studies the changes in socioeconomic determinants o
 abstract_short = "The present work studies the changes in socioeconomic determinants of health and analyzes the evolution in this relationship for the period 2005–2014 in Spain. This study supports the existence of contextual effects among Spanish regions that varies the association between SES measures and health, and therefore points out the relevance of socioeconomic context in explaining the differences in individuals’ states of health. In addition, our model indicates that more attention should be paid to less studied SES measures, especially those related to the position of individuals in globalized labor markets."
 
 # Featured image thumbnail (optional)
-image_preview = "determinantes.png"
+image_preview = "determinantes-wide.png"
 
 # Is this a selected publication? (true/false)
-selected = true
+selected = false
 
 # Projects (optional).
 #   Associate this publication with one or more of your projects.
@@ -56,7 +56,7 @@ highlight = true
 # Featured image
 # Place your image in the `static/img/` folder and reference its filename below, e.g. `image = "example.jpg"`.
 [header]
-image = "determinantes.png"
+image = ""
 caption = ""
 
 +++

@@ -3,11 +3,11 @@
 # This widget displays publications from `content/publication/` which have
 # `selected = true` in their `+++` front matter.
 widget = "publications_selected"
-active = true
+active = false
 date = 2016-04-20
 
 title = "Selected Publications"
-subtitle = ""
+subtitle = "[Publication List](http://vsslledo.netlify.com/publication)"
 
 # Order that this section will appear in.
 weight = 10
