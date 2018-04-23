@@ -1,0 +1,80 @@
+---
+title: "A raid in BiciMad"
+author: "@vsuarezlledo"
+date: 2018-04-23
+categories: ["R"]
+tags: ["r", "data", "public"]
+math: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+# BiciMad `r emo::ji("bike")`
+
+The [Open Data Portal of Madrid City Council](http://datos.madrid.es/portal/site/egob) is great initiative also is a good place to have enough data to try. Insipired by [this post](http://toddwschneider.com/posts/a-tale-of-twenty-two-million-citi-bikes-analyzing-the-nyc-bike-share-system/) I will dig into extracting the maximum information possible. For this porpouse I will use the [available data of BiciMad](http://datos.madrid.es/egob/catalogo/300110-0-accidentes-bicicleta.csv). All code is available on [GitHub](https://github.com/VictorSuarezL/vsslledo).
+
+Packages needed:
+```{r message=FALSE, warning=FALSE, echo= F}
+library(httr)
+library(readr)
+library(tidyverse)
+library(emo)
+library(scales)
+```
+
+Let's get the data. First of all set the `url` hosting data. Latter `read_delim` will help us with this task, set semicolon as delimiter then, just in case, `trim_ws = T` will trim whitespace.
+
+```{r}
+url <- "http://datos.madrid.es/egob/catalogo/300110-0-accidentes-bicicleta.csv"
+
+csv_data <- read_delim(url, delim = ";", trim_ws = T, locale = locale(encoding = "latin1"))
+
+# El sistema operativo es UTF-8 y el encode original del archivo es latin1
+# csv_data <- read.csv(url, sep = ";", header = T, skip = 1, strip.white = T, stringsAsFactors = F, encoding = "UTF-8", fileEncoding = "latin1")
+```
+
+##**Where are there more accidents with bicycles?**
+
+To answer this question we are going to use a couple of resources inside the `ggmap` package. Through this package we can access different map sources. By adjusting the `get_map` function we will have a map of the Community of Madrid.
+
+```{r cache.lazy=TRUE, include=FALSE}
+library(ggmap)
+
+m <- get_map("Comunidad de Madrid, España", zoom = 13, maptype = "terrain-lines")
+```
+
+Once we have the map we must first search the places, in general, street names. We also add the number of this one and in second place we add `" Madrid "` to ensure that the location is within the Community of Madrid. To obtain the location, we must simply use the `geocode` function which returns the coordinates of the address.
+
+```{r eval=FALSE}
+madrid_sites <- paste(csv_data$Lugar, csv_data$Numero, "Madrid", sep = " ")
+
+gcode <- function(x) {
+  Sys.sleep(5)
+  geocode(x)
+}
+
+xx <- map_df(madrid_sites, gcode)
+
+#Just erasing Madrid from madrid_sites
+xx$location <- sub("Madrid", "", madrid_sites)
+#Just cleaning
+xx$location <- tm::stripWhitespace(xx$location)
+
+write_csv(xx, path = "./data/geocodes.csv")
+```
+```{r message=FALSE, warning=FALSE, include=FALSE}
+xx <- read_csv("/Users/Tito/Documents/GitHub/vsslledo/data/geocodes.csv")
+```
+
+The final step is to gather everything we have obtained so far. On the one hand the map and on the other hand the `geocode`:
+
+```{r fig.height=7, fig.width=7, message=FALSE, warning=FALSE}
+## Map with locations:
+ggmap(m) +
+  geom_point(data = xx, aes(fill = location), size = 2, col = "#ff7058") +
+  coord_map() + 
+  guides(fill=FALSE) + labs(x = "", y = "") +
+  theme_void() + ggtitle("")
+```

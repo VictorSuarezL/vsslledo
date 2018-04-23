@@ -1,0 +1,62 @@
+---
+title: "A raid in BiciMad"
+author: "@vsuarezlledo"
+date: 2018-04-23
+categories: ["R"]
+tags: ["r", "data", "public"]
+math: true
+---
+
+
+
+<div id="bicimad" class="section level1">
+<h1>BiciMad 🚲</h1>
+<p>The <a href="http://datos.madrid.es/portal/site/egob">Open Data Portal of Madrid City Council</a> is great initiative also is a good place to have enough data to try. Insipired by <a href="http://toddwschneider.com/posts/a-tale-of-twenty-two-million-citi-bikes-analyzing-the-nyc-bike-share-system/">this post</a> I will dig into extracting the maximum information possible. For this porpouse I will use the <a href="http://datos.madrid.es/egob/catalogo/300110-0-accidentes-bicicleta.csv">available data of BiciMad</a>. All code is available on <a href="https://github.com/VictorSuarezL/vsslledo">GitHub</a>.</p>
+<p>Packages needed:</p>
+<p>Let’s get the data. First of all set the <code>url</code> hosting data. Latter <code>read_delim</code> will help us with this task, set semicolon as delimiter then, just in case, <code>trim_ws = T</code> will trim whitespace.</p>
+<pre class="r"><code>url &lt;- &quot;http://datos.madrid.es/egob/catalogo/300110-0-accidentes-bicicleta.csv&quot;
+
+csv_data &lt;- read_delim(url, delim = &quot;;&quot;, trim_ws = T, locale = locale(encoding = &quot;latin1&quot;))
+## Parsed with column specification:
+## cols(
+##   Fecha = col_character(),
+##   `TRAMO HORARIO` = col_character(),
+##   `Nm Tot Victimas` = col_integer(),
+##   DISTRITO = col_character(),
+##   Lugar = col_character(),
+##   Numero = col_integer(),
+##   `Tipo Accidente` = col_character(),
+##   `Tipo Vehiculo` = col_character()
+## )
+
+# El sistema operativo es UTF-8 y el encode original del archivo es latin1
+# csv_data &lt;- read.csv(url, sep = &quot;;&quot;, header = T, skip = 1, strip.white = T, stringsAsFactors = F, encoding = &quot;UTF-8&quot;, fileEncoding = &quot;latin1&quot;)</code></pre>
+<div id="where-are-there-more-accidents-with-bicycles" class="section level2">
+<h2><strong>Where are there more accidents with bicycles?</strong></h2>
+<p>To answer this question we are going to use a couple of resources inside the <code>ggmap</code> package. Through this package we can access different map sources. By adjusting the <code>get_map</code> function we will have a map of the Community of Madrid.</p>
+<p>Once we have the map we must first search the places, in general, street names. We also add the number of this one and in second place we add <code>&quot; Madrid &quot;</code> to ensure that the location is within the Community of Madrid. To obtain the location, we must simply use the <code>geocode</code> function which returns the coordinates of the address.</p>
+<pre class="r"><code>madrid_sites &lt;- paste(csv_data$Lugar, csv_data$Numero, &quot;Madrid&quot;, sep = &quot; &quot;)
+
+gcode &lt;- function(x) {
+  Sys.sleep(5)
+  geocode(x)
+}
+
+xx &lt;- map_df(madrid_sites, gcode)
+
+#Just erasing Madrid from madrid_sites
+xx$location &lt;- sub(&quot;Madrid&quot;, &quot;&quot;, madrid_sites)
+#Just cleaning
+xx$location &lt;- tm::stripWhitespace(xx$location)
+
+write_csv(xx, path = &quot;./data/geocodes.csv&quot;)</code></pre>
+<p>The final step is to gather everything we have obtained so far. On the one hand the map and on the other hand the <code>geocode</code>:</p>
+<pre class="r"><code>## Map with locations:
+ggmap(m) +
+  geom_point(data = xx, aes(fill = location), size = 2, col = &quot;#ff7058&quot;) +
+  coord_map() + 
+  guides(fill=FALSE) + labs(x = &quot;&quot;, y = &quot;&quot;) +
+  theme_void() + ggtitle(&quot;&quot;)</code></pre>
+<p><img src="/post/2018-04-24-r-bicimad_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+</div>
+</div>
